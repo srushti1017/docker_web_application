@@ -1,0 +1,55 @@
+<script> 
+function run() {
+var command = document.getElementById("com").value
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.43.48/cgi-bin/webapp.py?command=" +command , true)
+xhr.send()
+xhr.onload = function() {
+var out = xhr.responseText;
+document.getElementById("out").innerHTML = out;
+}
+}
+</script>
+
+<html>
+<body> 
+
+<div class=header style="text-align:center;"> <b><i><h1 style="color:blue">DOCKER WEB APPLICATION</h1></i></b></div>
+</br>
+
+
+<div style="text-align:center;"> [root@loalhost ~]# 
+<input id='com' type='text' size="32"> 
+<br/>
+</div>
+<br/>
+
+<div style="text-align:center;"> 
+<b><button onclick="run()" class="button"> RUN </button><b>
+</div>
+</br>
+
+<div class='op' style="text-align:center;"> <h2>Output</h2> </div>
+<pre> <div class="myDiv" id='out'> </div> </pre>
+
+
+
+</body>
+</html>
+
+<style> 
+body {
+background-image: url("https://miro.medium.com/max/2560/1*AKP_kZaYCqNxC5zRth1K3A.gif");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+button{
+background-color: lightblue; 
+box-shadow: 0 10px; 
+padding:12px 28px; 
+border-radius: 10px;
+}
+
+</style>
